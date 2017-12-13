@@ -9,8 +9,18 @@ like contributors to adhere to, and exist to make the process flow more
 smoothly.
 
 As a contributor you should try to make accepting your code as easy as
-you can, this greatly increases the chance your contribution will be
-accepted.
+you can, following the contributing docs greatly increases the chance
+your contribution will be accepted.
+
+Some common tidyverse conventions are
+
+  - Add a bullet to `NEWS.md` for each change referencing the issue
+    number and your GitHub username.
+  - Add `Closes #123` at the end of your commit message to automatically
+    close the issue with the PR is merged.
+  - Document functions with
+    [roxygen](https://github.com/klutometis/roxygen) and be sure to run
+    `devtools::document()` before submitting.
 
 ## Prerequisites
 
@@ -30,7 +40,7 @@ There are lots of ways to contribute *other* than by writing code. See
 [Contribute to the tidyverse](https://www.tidyverse.org/contribute/) for
 more on this.
 
-## Making a pull request
+## Making a pull request - overview
 
   - Uphold the design principles and package mechanics outlined below.  
   - When in doubt, discuss in an issue before doing lots of work.  
@@ -44,10 +54,10 @@ more on this.
     [**roxygen2**](https://cran.r-project.org/package=roxygen2), so you
     must edit the roxygen comments above the function; never edit
     `NAMESPACE` or `.Rd` files by hand.
-  - Website: Do not update the pkgdown-created website, i.e. the files
-    generated below `docs/`. We’ll take care of that.
+  - Do not update the pkgdown-created website, i.e. the files generated
+    below `docs/`. We’ll take care of that.
       - To update the roxygen documentation *without* changing the
-        pkgdown-created website, you can run `devtools::document()`.
+        pkgdown site, you can run `devtools::document()`.
 
 ### Style
 
@@ -91,6 +101,48 @@ co <- covr::package_coverage()
 covr::report(co)
 ```
 
+### The Pull Request
+
+Your pull request should clearly and concisely motivates the need for
+change. Each change should (and each PR) should correspond to a branch.
+The best way to check exactly what changes you are proposing is to use
+`git diff` prior to submitting your contribution. This will ensure it
+contains only the changes necessary for the new functionality.
+
+If the PR is related to an issue, link to it in the description, with
+[the `#15`
+syntax](https://help.github.com/articles/autolinked-references-and-urls/)
+and the issue slug for context. If the PR is meant to close an issue,
+make sure one of the commit messages includes [text like `closes #44` or
+`fixes
+#101`](https://help.github.com/articles/closing-issues-using-keywords/).
+Provide the issue number and slug in the description, even if the issue
+is mentioned in the title, because auto-linking does not work in the PR
+title.
+
+  - GOOD PR title: *“Obtain user’s intent via mind-reading; fixes
+    \#86”.*  
+  - BAD PR title: *“Fixes \#1043”.* Please remind us all what issue
+    \#1043 is about\!  
+  - BAD PR title: *“Something about \#345”.* This will not actually
+    close issue \#345 upon merging.
+
+Add a bullet to `NEWS.md` with a concise description of the change, if
+it’s something a user would want to know when updating the package.
+[dplyr’s
+`NEWS.md`](https://github.com/tidyverse/dplyr/blob/master/NEWS.md) is a
+good source of examples. Note the sentence format, the inclusion of
+GitHub username, and links to relevant issue(s)/PR(s). We will handle
+any organization into sub-sections just prior to a release.
+
+What merits a bullet?
+
+  - Fixing a typo in the docs does not, but it is still awesome and
+    deeply appreciated.
+  - Fixing a bug or adding a new feature is bullet-worthy.
+
+## On contributing
+
 ### View contributing as a relationship, not a transaction
 
 The best way to be successful contributing to open source projects is to
@@ -108,12 +160,13 @@ Please note that this project is released with a [Contributor Code of
 Conduct](CONDUCT.md). By participating in this project you agree to
 abide by its terms.
 
-#### Acknowledgements/Confession
+#### Further reading
 
 This document has been largely ~~plagiarized from~~ inspired by Jenny
 Bryan’s [googledrive](http://googledrive.tidyverse.org/)
 [`CONTRIBUTING.md`](https://github.com/tidyverse/googledrive/blob/master/CONTRIBUTING.md),
 Hadley Wickham’s [Contributing to ggplot2
 development](https://github.com/tidyverse/ggplot2/blob/92666ca8dd4cb5f96cbfcd4dcfcf157b599a6048/CONTRIBUTING.md),
-and Jim Hester’s excellent [Contributing Code to the
-Tidyverse](http://www.jimhester.com/2017/08/08/contributing/).
+and Jim Hester’s [Contributing Code to the
+Tidyverse](http://www.jimhester.com/2017/08/08/contributing/), all of
+which are worth reading in their own right.
