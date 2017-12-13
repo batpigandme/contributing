@@ -1,5 +1,15 @@
-Contributing to {package}
+Contributing to {{{package}}}
 ================
+
+## What is this?
+
+A `CONTRIBUTING.md` document has instructions for contributing to the
+project. These are guidelines the maintainers would like contributors to
+adhere to, and exist to make the process flow more smoothly.
+
+As a contributor you should try to make accepting your code as easy as
+you can, this greatly increases the chance your contribution will be
+accepted.
 
 ## Prerequisites
 
@@ -16,6 +26,15 @@ Contributing to {package}
     a **baseline**.
   - Match the existing code style. For this purpose, you should follow
     the tidyverse style guide <http://style.tidyverse.org>.
+  - Documentation: Update the documentation source, if your PR changes
+    any behavior. We use
+    [**roxygen2**](https://cran.r-project.org/package=roxygen2), so you
+    must edit the roxygen comments above the function; never edit
+    `NAMESPACE` or `.Rd` files by hand.
+  - Website: Do not update the pkgdown-created website, i.e. the files
+    generated below `docs/`. We’ll take care of that.
+      - To update the roxygen documentation *without* changing the
+        pkgdown-created website, you can run `devtools::document()`.
 
 #### Acknowledgements/Confession
 
