@@ -3,9 +3,10 @@ Contributing to {{{package}}}
 
 ## What is this?
 
-A `CONTRIBUTING.md` document has instructions for contributing to the
-project. These are guidelines the maintainers would like contributors to
-adhere to, and exist to make the process flow more smoothly.
+A `CONTRIBUTING.md` document (such as this one) has instructions for
+contributing to the project. These are guidelines the maintainers would
+like contributors to adhere to, and exist to make the process flow more
+smoothly.
 
 As a contributor you should try to make accepting your code as easy as
 you can, this greatly increases the chance your contribution will be
@@ -16,6 +17,12 @@ accepted.
   - For this guide to make sense, you’ll need to be acquainted with Git
     and GitHub. If you are not, see [Happy Git and GitHub for the
     useR](http://happygitwithr.com/) by Jenny Bryan.
+
+  - Before you do a pull request, you should always file an issue and
+    make sure someone from the tidyverse team agrees that it’s a
+    problem, and is happy with your basic proposal for fixing it. We
+    don’t want you to spend a bunch of time on something that we don’t
+    think is a good idea.
 
 ## Making a pull request
 
@@ -36,6 +43,10 @@ accepted.
       - To update the roxygen documentation *without* changing the
         pkgdown-created website, you can run `devtools::document()`.
 
+### Testing
+
+We use [testthat](https://cran.r-project.org/package=testthat).
+
 ### View contributing as a relationship, not a transaction
 
 The best way to be successful contributing to open source projects is to
@@ -46,6 +57,12 @@ and accept more substantial changes. As with any relationship being
 polite and considerate throughout will go a long way to improve trust.
 If you instead view the contribution as a solitary transaction to add
 your pet feature you are much less likely to be successful.
+
+## Code of Conduct
+
+Please note that this project is released with a [Contributor Code of
+Conduct](CONDUCT.md). By participating in this project you agree to
+abide by its terms.
 
 #### Acknowledgements/Confession
 
