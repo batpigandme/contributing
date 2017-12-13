@@ -42,10 +42,21 @@ can, this greatly increases the chance your contribution will be accepted.
     + To update the roxygen documentation _without_ changing the pkgdown-created 
       website, you can run `devtools::document()`.
   
-  
 
 
 
+
+
+### View contributing as a relationship, not a transaction ###
+
+The best way to be successful contributing to open source projects is to do so
+repeatedly. This means cultivating trust between yourself and the maintainer by
+multiple successful contributions. After a series of smaller contributions the
+maintainer will be much more willing to review and accept more substantial
+changes. As with any relationship being polite and considerate throughout will
+go a long way to improve trust. If you instead view the contribution as a
+solitary transaction to add your pet feature you are much less likely to be
+successful.
 
 
 
