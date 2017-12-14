@@ -19,8 +19,8 @@ Some common tidyverse conventions are
   - Add `Closes #123` at the end of your commit message to automatically
     close the issue with the PR is merged.
   - Document functions with
-    [roxygen](https://github.com/klutometis/roxygen) and be sure to run
-    `devtools::document()` before submitting.
+    [roxygen2](https://cran.r-project.org/web/packages/roxygen2/) and be
+    sure to run `devtools::document()` before submitting.
 
 ## Prerequisites
 
@@ -42,20 +42,21 @@ more on this.
 
 ## Making a pull request - overview
 
-  - Uphold the design principles and package mechanics outlined below.  
   - When in doubt, discuss in an issue before doing lots of work.  
+  - Use GitHub to fork and clone the package repo, and a branching
+    workflow to make your changes.
+  - Uphold the design principles and package mechanics outlined below.  
   - Make sure the package still passes `R CMD check` locally for you.
     It’s a good idea to do that before you touch anything, so you have
-    a **baseline**.
+    a ***baseline***.
   - Match the existing code style. For this purpose, you should follow
     the tidyverse style guide <http://style.tidyverse.org>.  
-  - Documentation: Update the documentation source, if your PR changes
-    any behavior. We use
-    [**roxygen2**](https://cran.r-project.org/package=roxygen2), so you
-    must edit the roxygen comments above the function; never edit
+  - Update the documentation source, if your PR changes any behavior. We
+    use [**roxygen2**](https://cran.r-project.org/package=roxygen2), so
+    you must edit the roxygen comments above the function; never edit
     `NAMESPACE` or `.Rd` files by hand.
   - Do not update the pkgdown-created website, i.e. the files generated
-    below `docs/`. We’ll take care of that.
+    below `docs/`.
       - To update the roxygen documentation *without* changing the
         pkgdown site, you can run `devtools::document()`.
 
@@ -82,6 +83,17 @@ to create `NAMESPACE` and all `.Rd` files. All edits to documentation
 should be done in roxygen comments above the associated function or
 object.
 
+``` r
+# install.packages("devtools")
+devtools::document()
+```
+
+See the `RoxygenNote` in [DESCRIPTION](DESCRIPTION) for the version of
+roxygen2 being used. It’s nice if a pull request includes updated
+documentation, but a good reason to NOT `document()` is if you have a
+different version of roxygen2 installed and that sprays minor formatting
+changes across `.Rd` files that have nothing to do with the PR.
+
 ### Testing
 
 We use [testthat](https://cran.r-project.org/package=testthat).
@@ -101,10 +113,14 @@ co <- covr::package_coverage()
 covr::report(co)
 ```
 
+Before submitting your changes, make sure that the package either still
+passes `R CMD check`, or that the warnings and/or notes have not changed
+as a result of your edits.
+
 ### The Pull Request
 
-Your pull request should clearly and concisely motivates the need for
-change. Each change should (and each PR) should correspond to a branch.
+Your pull request should clearly and concisely state the motivating the
+need for change. Each change and each PR) should correspond to a branch.
 The best way to check exactly what changes you are proposing is to use
 `git diff` prior to submitting your contribution. This will ensure it
 contains only the changes necessary for the new functionality.
@@ -140,6 +156,10 @@ What merits a bullet?
   - Fixing a typo in the docs does not, but it is still awesome and
     deeply appreciated.
   - Fixing a bug or adding a new feature is bullet-worthy.
+
+When a maintainer does review a contribution, try to address the
+comments in short order, your changes are much more likely to be
+accepted if they are addressed in the next day than the next month.
 
 ## On contributing
 
